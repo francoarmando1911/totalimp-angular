@@ -70,14 +70,14 @@
     }
 
     &__menu-link {
-        color: white;
+        color: #333;
         text-decoration: none;
         font-size: 1rem;
         font-weight: 500;
         transition: color 0.3s ease;
 
         &:hover {
-            color: #333;
+            color: #109ff2;
         }
     }
 
@@ -95,6 +95,7 @@
         visibility: hidden;
         transition: opacity 0.2s ease, visibility 0.2s ease;
         z-index: 999;
+        border-radius: 7px;
 
         &--visible {
             opacity: 1;
@@ -163,6 +164,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
+            border-radius: 7px;
 
             &--visible {
                 max-height: 300px;
