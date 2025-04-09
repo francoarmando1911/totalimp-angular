@@ -14,29 +14,27 @@
 
         <nav class="header__nav" [class.header__nav--active]="isMenuOpen">
             <ul class="header__menu">
-                <li class="header__menu-item">
+            
+                <button class="header__menu-item" mat-button>
                     <a href="#" class="header__menu-link">Inicio</a>
-                </li>
-                <button mat-button>
-                    Prueba
                 </button>
 
-                <li class="header__menu-item" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+                <button class="header__menu-item" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" mat-button>
                     <a href="#" class="header__menu-link" (click)="toggleSubmenu()" [attr.aria-expanded]="isSubmenuOpen"
                         [attr.aria-haspopup]="true">
                         Categorías
                     </a>
-
+                    
                     <ul class="header__submenu" [class.header__submenu--visible]="isSubmenuOpen || isDesktopView">
                         <li class="header__submenu-item "><a href="#">Por medio litro</a></li>
                         <li class="header__submenu-item"><a href="#">Por litro</a></li>
                         <li class="header__submenu-item"><a href="#">Por 2,25 litros</a></li>
                     </ul>
-                </li>
+                </button>
 
-                <li class="header__menu-item">
+                <button class="header_menu-item" mat-button>
                     <a href="#" class="header__menu-link">Contacto</a>
-                </li>
+                </button>
             </ul>
         </nav>
     </div>
