@@ -2,13 +2,11 @@
     <div class="header__container">
         <div class="header__logo">
             <a href="/">
-                <img src="/GotaLogo.png" alt="Logo" style="height: 60px;" />
+                <img src="/GotaLogo.png" alt="Logo" style="height: 60px" />
             </a>
         </div>
 
-        <h1>
-            TOTALIMP
-        </h1>
+        <h1 class="header__title">TOTALIMP</h1>
 
         <button class="header__toggle" aria-label="Toggle menu" (click)="toggleMenu()">
             <span></span>
@@ -16,29 +14,35 @@
             <span></span>
         </button>
 
-        <nav class="header__nav" [class.header__nav--active]="isMenuOpen">
+        <nav class="header__nav" [class.header__nav--active]="isMenuOpen" role="navigation">
             <ul class="header__menu">
-            
-                <button class="header__menu-item" mat-button>
-                    <a href="#" class="header__menu-link">Inicio</a>
-                </button>
+                <li class="header__menu-item">
+                    <a href="#" class="header__menu-link" (click)="closeMenu()">Inicio</a>
+                </li>
 
-                <button class="header__menu-item" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" mat-button>
-                    <a href="#" class="header__menu-link" (click)="toggleSubmenu()" [attr.aria-expanded]="isSubmenuOpen"
-                        [attr.aria-haspopup]="true">
+                <li class="header__menu-item" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+                    <button class="header__menu-link" (click)="toggleSubmenu()" aria-haspopup="true"
+                        [attr.aria-expanded]="isSubmenuOpen">
                         Categorías
-                    </a>
-                    
-                    <ul class="header__submenu" [class.header__submenu--visible]="isSubmenuOpen || isDesktopView">
-                        <li class="header__submenu-item "><a href="#">Por medio litro</a></li>
-                        <li class="header__submenu-item"><a href="#">Por litro</a></li>
-                        <li class="header__submenu-item"><a href="#">Por 2,25 litros</a></li>
-                    </ul>
-                </button>
+                        <mat-icon>expand_more</mat-icon>
+                    </button>
 
-                <button class="header_menu-item" mat-button>
-                    <a href="#" class="header__menu-link">Contacto</a>
-                </button>
+                    <ul class="header__submenu" [class.header__submenu--visible]="isSubmenuOpen || !isDesktopView">
+                        <li class="header__submenu-item">
+                            <a href="#" (click)="closeMenu()">Por medio litro</a>
+                        </li>
+                        <li class="header__submenu-item">
+                            <a href="#" (click)="closeMenu()">Por litro</a>
+                        </li>
+                        <li class="header__submenu-item">
+                            <a href="#" (click)="closeMenu()">Por 2,25 litros</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="header__menu-item">
+                    <a href="#" class="header__menu-link" (click)="closeMenu()">Contacto</a>
+                </li>
             </ul>
         </nav>
     </div>

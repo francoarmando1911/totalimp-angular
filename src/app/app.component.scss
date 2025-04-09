@@ -1,4 +1,17 @@
-.h1{
-    color: red;
-    font: 100% ;
+.main {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: calc(100vh - 160px); // ajustá según el alto de tu header + footer
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        padding: 1rem 0.75rem;
+        gap: 1.5rem;
+    }
 }

@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +16,8 @@ export class HeaderComponent implements OnInit {
   isSubmenuOpen = false;
   isDesktopView = false;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+
   ngOnInit(): void {
     this.updateViewMode();
   }
@@ -30,13 +33,18 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  closeMenu(): void {
+    this.isMenuOpen = false;
+    this.isSubmenuOpen = false;
+  }
+
   @HostListener('window:resize', [])
   onResize(): void {
     this.updateViewMode();
   }
 
   private updateViewMode(): void {
-    if (typeof window !== 'undefined') {
+    if (isPlatformBrowser(this.platformId)) {
       this.isDesktopView = window.innerWidth > 768;
     }
   }
